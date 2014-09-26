@@ -75,7 +75,7 @@ $curl->close();
 // Parse data
 $row = array();
 
-\cli\line("Today's timetable for " . $user);
+\cli\line("Timetable for " . $user . " at " . $date);
 
 foreach($data->days[0]->events as $event)
 {
@@ -94,7 +94,7 @@ foreach($data->days[0]->events as $event)
 // empty msg
 if(empty($row))
 {
-    \cli\line('%G%0No courses today!%n');
+    \cli\line('%G%0No courses on ' . $date . '!%n');
 } else {
 
     // Print Table
