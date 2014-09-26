@@ -7,7 +7,7 @@
  * uses the ZHAW CampusInfo API(v 1.5) by Andreas Ahlenstorf 
  */
 
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
 require_once 'lib/curl.php';
 require_once 'lib/cli/cli.php';
@@ -20,7 +20,6 @@ require_once 'lib/cli/table/Ascii.php';
 require_once 'lib/cli/table/Tabular.php';
 
 use \Curl\Curl;
-use cli;
 
 $API_URL = 'https://api.apps.engineering.zhaw.ch/v1/';
 
@@ -57,7 +56,8 @@ $curl->get($API_URL . 'schedules/students/' . $user, array(
     'startingAt' => $date,
 ));
 
-if ($curl->error) {
+if ($curl->error) 
+{
     if($curl->error_code == 404)
     {
         \cli\err('%1Error: user not found%n');
@@ -67,13 +67,14 @@ if ($curl->error) {
         
     exit(1);
 }
-else {
+else 
+{
     $data = $curl->response;
 }
 $curl->close();
 
 // Parse data
-$row = array();
+$rows = array();
 
 \cli\line("Timetable for " . $user . " at " . $date);
 
@@ -83,7 +84,7 @@ foreach($data->days[0]->events as $event)
     $end = date_create($event->endTime);
     $room = $event->eventRealizations[0]->room->name;
 
-    $row[] = [
+    $rows[] = [
         date_format($start, 'H:i'),
         date_format($end, 'H:i'),
         $event->name,
@@ -92,7 +93,7 @@ foreach($data->days[0]->events as $event)
 }
 
 // empty msg
-if(empty($row))
+if(empty($rows))
 {
     \cli\line('%G%0No courses on ' . $date . '!%n');
 } else {
@@ -102,7 +103,7 @@ if(empty($row))
 
     $table = new \cli\Table();
     $table->setHeaders($headers);
-    $table->setRows($row);
+    $table->setRows($rows);
     $table->display();    
 }
 
