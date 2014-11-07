@@ -3,7 +3,7 @@ stundenplan
 
 stundenplan is a command line client for the ZHAW course schedule. It makes use of the ZHAW CampusInfo API (v. 1.5) by Andreas Ahlenstorf. You need a valid ZHAW-username.
 
-``` sh
+```
 $ stundenplan aebersim
 
 Today's timetable for aebersim
@@ -50,7 +50,7 @@ PROTIP: alias stundenplan to something like `alias today='stundenplan username'`
 
 Commands
 --------
-``` sh
+```
 stundenplan: ZHAW course schedule for the command line.
 
 Useage:
