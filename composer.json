@@ -1,0 +1,12 @@
+{
+    "name": "aebersold/stundenplan",
+    "description": "ZHAW course schedule for the command line",
+    "license": "GPLv3",
+    "keywords": ["zhaw"],
+    "homepage": "http://github.com/aebersold/stundenplan",
+    "authors": [
+        {
+            "name": "Simon Aebersold"
+        }
+    ]
+}

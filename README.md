@@ -4,7 +4,7 @@ stundenplan
 stundenplan is a command line client for the ZHAW course schedule. It makes use of the ZHAW CampusInfo API (v. 1.5) by Andreas Ahlenstorf. You need a valid ZHAW-username.
 
 ``` sh
-$ php stundenplan.php aebersim
+$ stundenplan aebersim
 
 Today's timetable for aebersim
 +-------+-------+-----------+--------+
@@ -18,14 +18,47 @@ Today's timetable for aebersim
 +-------+-------+-----------+--------+
 ```
 
-Usage / Installation
---------------------
+Installation
+------------
 
- * make sure you have a `php` executable in your shell.
- * download to a directory, probably something like `/usr/local/lib/stundenplan`.
- * run it by `php stundenplan.php username`.
- * PROTIP: alias that to something like `alias today='php stundenplan.php username'`.
+You can run the stundenplan shedule in your shell by typing stundenplan.
+ 
+* [Install Composer globally](https://getcomposer.org/doc/00-intro.md#globally).
 
+* Make sure Composer's global executable directory is in your system's PATH:
+
+        for FILE in $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_login $HOME/.profile; \
+        do if [ -f $FILE ]; then \
+        printf '\nexport PATH="$HOME/.composer/vendor/bin:$PATH"' >> $FILE && . $FILE; \
+        break; fi; done
+
+* Install the latest stable version of the CLI:
+
+        composer global require 'aebersold/stundenplan:1.*'
+
+Usage
+-----
+You can run the stundenplan in your shell by typing `stundenplan`.
+
+        stundenplan username
+
+Optionally, you can specify a date.
+
+        stundenplan username 2014-11-11
+
+PROTIP: alias stundenplan to something like `alias today='stundenplan username'`.
+
+Commands
+--------
+``` sh
+stundenplan: ZHAW course schedule for the command line.
+
+Useage:
+  stundenplan username [date]
+
+  username:  zhaw username
+  date:      date in format YYYY-MM-DD | tomorrow
+```
 
 Requirements
 ------------
