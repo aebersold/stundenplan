@@ -8,5 +8,8 @@
         {
             "name": "Simon Aebersold"
         }
+    ],
+    "bin": [
+        "aebersold"
     ]
 }
