@@ -10,6 +10,6 @@
         }
     ],
     "bin": [
-        "aebersold"
+        "aebersold/stundenplan"
     ]
 }
