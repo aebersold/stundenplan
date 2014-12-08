@@ -21,7 +21,7 @@ Today's timetable for aebersim
 Installation
 ------------
 
-You can run the stundenplan shedule in your shell by typing stundenplan.
+You can install stundenplan with the composer dependency manager. This is very straightforward, if you have composer installed it's enough to type `composer global require 'aebersold/stundenplan:1.*'`. Here ist the step-for-step guide: 
  
 * [Install Composer globally](https://getcomposer.org/doc/00-intro.md#globally).
 
